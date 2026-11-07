@@ -11,15 +11,15 @@
   <style>
     /* Одна спокойная колонка: картинка сверху, имя и запись, затем о себе, принципы, услуги, адрес */
     :root {
-      --bg: #f6f0e7;        /* тёплый молочный */
-      --surface: #fffdf9;
-      --ink: #3a302b;       /* тёмный кофейный текст */
-      --muted: #7b6d64;
-      --taupe: #a9827a;     /* пыльная роза-тауп, как лак */
-      --taupe-dark: #6f5a52;
-      --sage: #8a9a86;      /* шалфей */
-      --gold: #c8a76a;
-      --line: #e6dccf;
+      --bg: #f8f3fb;        /* светлый с лавандовым оттенком */
+      --surface: #ffffff;
+      --ink: #1e1622;       /* почти чёрный, тёплый */
+      --muted: #3d3342;     /* тёмно-серый для второстепенного текста */
+      --taupe: #7a3fb0;     /* фиолетовый акцент */
+      --taupe-dark: #5a2690; /* насыщенный фиолетовый для кнопок */
+      --sage: #4f9a7a;      /* яркий шалфей */
+      --gold: #d39a2c;
+      --line: #e3d6ee;
       --f-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
       --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
     }
@@ -30,8 +30,8 @@
       background: var(--bg);
       color: var(--ink);
       font-family: var(--f-body);
-      font-size: 17px;
-      line-height: 1.65;
+      font-size: 19px;
+      line-height: 1.6;
       -webkit-text-size-adjust: 100%;
     }
     .wrap {
@@ -42,36 +42,38 @@
     }
     img { max-width: 100%; display: block; }
     h1, h2 { font-family: var(--f-display); font-weight: 600; line-height: 1.1; margin: 0; text-wrap: balance; }
-    h2 { font-size: clamp(30px, 6vw, 40px); }
+    h2 { font-size: clamp(34px, 7vw, 46px); color: var(--ink); }
     p { margin: 0; }
-    .eyebrow { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe); font-weight: 600; }
+    .eyebrow { font-size: 15px; letter-spacing: .16em; text-transform: uppercase; color: var(--taupe); font-weight: 600; }
 
-    /* Шапка */
-    .hero { padding-top: max(18px, env(safe-area-inset-top, 0px)); }
+    /* Шапка: картинка вдвое меньше прежней */
+    .hero { padding-top: max(18px, env(safe-area-inset-top, 0px)); display: flex; flex-direction: column; }
     .hero-img {
-      width: 100%; aspect-ratio: 16 / 11; object-fit: cover;
-      border-radius: 22px;
-      box-shadow: 0 24px 50px -30px rgba(80,60,45,.45);
+      width: 70%; max-width: 380px; aspect-ratio: 16 / 11; object-fit: cover;
+      align-self: center;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px -24px rgba(90,38,144,.45);
+      outline: 3px solid var(--surface);
     }
-    .hero-text { display: flex; flex-direction: column; gap: 14px; padding-block: 28px 8px; }
-    h1 { font-size: clamp(44px, 11vw, 68px); }
-    h1 em { font-style: italic; font-weight: 500; color: var(--taupe-dark); }
-    .lead { font-size: 19px; color: var(--muted); max-width: 34em; }
+    .hero-text { display: flex; flex-direction: column; gap: 16px; padding-block: 24px 8px; }
+    h1 { font-size: clamp(48px, 12vw, 72px); }
+    h1 em { font-style: italic; font-weight: 600; color: var(--taupe); }
+    .lead { font-size: 21px; color: var(--muted); max-width: 34em; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       align-self: flex-start;
       background: var(--taupe-dark); color: #fffdf9;
-      text-decoration: none; font-weight: 600; font-size: 17px;
-      padding: 15px 26px; border-radius: 999px;
-      box-shadow: 0 12px 24px -14px rgba(111,90,82,.8);
+      text-decoration: none; font-weight: 600; font-size: 19px;
+      padding: 16px 28px; border-radius: 999px;
+      box-shadow: 0 12px 24px -12px rgba(90,38,144,.7);
       transition: background .2s, transform .2s;
     }
-    .btn:hover { background: #5c4a43; transform: translateY(-1px); }
+    .btn:hover { background: #47197a; transform: translateY(-1px); }
     .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     .btn svg { width: 22px; height: 22px; flex: none; }
-    .place { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 15px; }
-    .place::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sage); }
+    .place { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 18px; }
+    .place::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--sage); flex: none; }
 
     section { padding-block: 44px; }
     section + section { border-top: 1px solid var(--line); }
@@ -83,7 +85,8 @@
       background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
       padding: 20px 22px; display: flex; flex-direction: column; gap: 6px;
     }
-    .value h3 { margin: 0; font-family: var(--f-display); font-size: 26px; font-weight: 600; color: var(--taupe-dark); }
+    .value { border-top: 4px solid var(--taupe); }
+    .value h3 { margin: 0; font-family: var(--f-display); font-size: 30px; font-weight: 600; color: var(--taupe-dark); }
     .value p { color: var(--muted); }
 
     /* Услуги */
@@ -93,9 +96,11 @@
       padding-block: 16px; border-bottom: 1px dashed var(--line);
     }
     .services li:first-child { border-top: 1px dashed var(--line); }
-    .services .name { font-family: var(--f-display); font-size: 26px; font-weight: 600; }
-    .services .price { color: var(--muted); font-size: 15px; white-space: nowrap; }
-    .note { color: var(--muted); font-size: 15px; }
+    .services li { border-bottom-color: #cdb8e0; }
+    .services li:first-child { border-top-color: #cdb8e0; }
+    .services .name { font-family: var(--f-display); font-size: 30px; font-weight: 600; }
+    .services .price { color: var(--taupe-dark); font-size: 17px; font-weight: 600; white-space: nowrap; }
+    .note { color: var(--muted); font-size: 18px; }
 
     /* Запись */
     .cta {
@@ -104,11 +109,13 @@
     }
     .cta .btn { align-self: center; }
 
-    footer { padding-block: 28px max(28px, env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 14px; text-align: center; }
+    .cta { background: linear-gradient(160deg, #ffffff, #f1e6fa); border-color: #d9c4ec; }
+    footer { padding-block: 28px max(28px, env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 16px; text-align: center; }
 
     @media (min-width: 640px) {
       .values { grid-template-columns: repeat(3, 1fr); }
       .cta { padding: 44px; }
+      .hero-img { width: 50%; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
   </style>
