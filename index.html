@@ -112,8 +112,12 @@
     .cta { background: linear-gradient(160deg, #ffffff, #f1e6fa); border-color: #d9c4ec; }
     footer { padding-block: 28px max(28px, env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 16px; text-align: center; }
 
+    .value { min-width: 0; }
+    .value h3 { overflow-wrap: anywhere; hyphens: auto; }
+    @media (min-width: 900px) {
+      .values { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
     @media (min-width: 640px) {
-      .values { grid-template-columns: repeat(3, 1fr); }
       .cta { padding: 44px; }
       .hero-img { width: 50%; }
     }
