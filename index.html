@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Катя — маникюр во Владивостоке</title>
+  <meta name="description" content="Катя, мастер маникюра и педикюра во Владивостоке. Свой кабинет во Владивостоке. Запись в WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap">
+  <style>
+    /* Одна спокойная колонка: картинка сверху, имя и запись, затем о себе, принципы, услуги, адрес */
+    :root {
+      --bg: #f6f0e7;        /* тёплый молочный */
+      --surface: #fffdf9;
+      --ink: #3a302b;       /* тёмный кофейный текст */
+      --muted: #7b6d64;
+      --taupe: #a9827a;     /* пыльная роза-тауп, как лак */
+      --taupe-dark: #6f5a52;
+      --sage: #8a9a86;      /* шалфей */
+      --gold: #c8a76a;
+      --line: #e6dccf;
+      --f-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--f-body);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-left: max(18px, env(safe-area-inset-left, 0px));
+      padding-right: max(18px, env(safe-area-inset-right, 0px));
+    }
+    img { max-width: 100%; display: block; }
+    h1, h2 { font-family: var(--f-display); font-weight: 600; line-height: 1.1; margin: 0; text-wrap: balance; }
+    h2 { font-size: clamp(30px, 6vw, 40px); }
+    p { margin: 0; }
+    .eyebrow { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe); font-weight: 600; }
+
+    /* Шапка */
+    .hero { padding-top: max(18px, env(safe-area-inset-top, 0px)); }
+    .hero-img {
+      width: 100%; aspect-ratio: 16 / 11; object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 24px 50px -30px rgba(80,60,45,.45);
+    }
+    .hero-text { display: flex; flex-direction: column; gap: 14px; padding-block: 28px 8px; }
+    h1 { font-size: clamp(44px, 11vw, 68px); }
+    h1 em { font-style: italic; font-weight: 500; color: var(--taupe-dark); }
+    .lead { font-size: 19px; color: var(--muted); max-width: 34em; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      align-self: flex-start;
+      background: var(--taupe-dark); color: #fffdf9;
+      text-decoration: none; font-weight: 600; font-size: 17px;
+      padding: 15px 26px; border-radius: 999px;
+      box-shadow: 0 12px 24px -14px rgba(111,90,82,.8);
+      transition: background .2s, transform .2s;
+    }
+    .btn:hover { background: #5c4a43; transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .btn svg { width: 22px; height: 22px; flex: none; }
+    .place { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 15px; }
+    .place::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sage); }
+
+    section { padding-block: 44px; }
+    section + section { border-top: 1px solid var(--line); }
+    .stack { display: flex; flex-direction: column; gap: 16px; }
+
+    /* Принципы */
+    .values { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 8px; }
+    .value {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+      padding: 20px 22px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .value h3 { margin: 0; font-family: var(--f-display); font-size: 26px; font-weight: 600; color: var(--taupe-dark); }
+    .value p { color: var(--muted); }
+
+    /* Услуги */
+    .services { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; }
+    .services li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding-block: 16px; border-bottom: 1px dashed var(--line);
+    }
+    .services li:first-child { border-top: 1px dashed var(--line); }
+    .services .name { font-family: var(--f-display); font-size: 26px; font-weight: 600; }
+    .services .price { color: var(--muted); font-size: 15px; white-space: nowrap; }
+    .note { color: var(--muted); font-size: 15px; }
+
+    /* Запись */
+    .cta {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 22px;
+      padding: 32px 24px; text-align: center; align-items: center;
+    }
+    .cta .btn { align-self: center; }
+
+    footer { padding-block: 28px max(28px, env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 14px; text-align: center; }
+
+    @media (min-width: 640px) {
+      .values { grid-template-columns: repeat(3, 1fr); }
+      .cta { padding: 44px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="hero">
+      <img class="hero-img" src="hero.png" alt="Флаконы лака спокойных оттенков, образцы ногтей, пилка и кремовые пионы" width="1600" height="1100">
+      <div class="hero-text">
+        <div class="eyebrow">Маникюр и педикюр · Владивосток</div>
+        <h1>Катя, <em>мастер маникюра</em></h1>
+        <p class="lead">Аккуратный маникюр и педикюр в спокойной обстановке. Инструменты стерильные, время ваше, а разговор такой, что час пролетает незаметно.</p>
+        <!-- ЗАГЛУШКА: замените 79000000000 на настоящий номер Кати (только цифры, с 7 в начале) -->
+        <a class="btn" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%82%D1%8F%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Записаться в WhatsApp
+        </a>
+        <div class="place">Свой кабинет во Владивостоке</div>
+      </div>
+    </header>
+
+    <section class="stack">
+      <div class="eyebrow">Обо мне</div>
+      <h2>Ко мне приходят годами</h2>
+      <p>Я занимаюсь маникюром много лет. У меня есть постоянные клиентки, которые ходят ко мне годами, и ко мне едут со всего Владивостока.</p>
+      <p>Мне важно, чтобы вам было не только красиво, но и спокойно. Во время процедуры со мной можно поговорить о чём угодно: о книгах, путешествиях, детях, работе или просто о жизни. Я выслушаю, пойму и, если нужно, подскажу.</p>
+    </section>
+
+    <section class="stack">
+      <div class="eyebrow">Чему я не изменяю</div>
+      <h2>Три правила моей работы</h2>
+      <div class="values">
+        <div class="value">
+          <h3>Стерильность</h3>
+          <p>Все инструменты проходят полную стерилизацию перед каждой клиенткой. Без исключений.</p>
+        </div>
+        <div class="value">
+          <h3>Аккуратность</h3>
+          <p>Ровное покрытие, бережная обработка кутикулы, чистые линии. Маникюр, который приятно носить.</p>
+        </div>
+        <div class="value">
+          <h3>Добросовестность</h3>
+          <p>Делаю так, как сделала бы для себя. Не тороплюсь и не экономлю на материалах.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="eyebrow">Услуги</div>
+      <h2>Что я делаю</h2>
+      <ul class="services">
+        <li><span class="name">Маникюр</span><span class="price">цена по запросу</span></li>
+        <li><span class="name">Педикюр</span><span class="price">цена по запросу</span></li>
+        <li><span class="name">Покрытие</span><span class="price">цена по запросу</span></li>
+        <li><span class="name">Наращивание</span><span class="price">цена по запросу</span></li>
+      </ul>
+      <p class="note">Напишите мне, что хотите сделать, и я назову точную стоимость.</p>
+    </section>
+
+    <section>
+      <div class="cta stack">
+        <div class="eyebrow">Запись</div>
+        <h2>Буду рада вас видеть</h2>
+        <p class="note">Кабинет во Владивостоке. Точный адрес и удобное время подскажу в WhatsApp.</p>
+        <!-- ЗАГЛУШКА: тот же номер, что и в кнопке выше -->
+        <a class="btn" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%82%D1%8F%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Записаться в WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <footer>Катя · маникюр и педикюр · Владивосток</footer>
+  </div>
+</body>
+</html>
